@@ -21,15 +21,19 @@ void ofApp::draw()
     ofNoFill();
     if (mode == '1')
     {
-        drawMode1(ofGetWidth() / 2, ofGetHeight() / 2, 4);
+        drawMode1(ofGetWidth() / 2, ofGetHeight() / 2, getLevel());
     }
     else if (mode == '2')
     {
-        drawMode2(200, 10, ofGetWidth() / 2, ofGetHeight() - 50, 30);
+        drawMode2(200, getLevel(), ofGetWidth() / 2, ofGetHeight() - 50, 30);
     }
     else if (mode == '3')
     {
-        drawMode3(ofGetWidth() / 3, 10, ofGetHeight() / 2, 10);
+        drawMode3(ofGetWidth() / 3, 10, ofGetHeight() / 2, getLevel());
+    }
+    else if(mode == '4')
+    {
+        drawTriforce(ofGetWidth() / 3, 10, ofGetHeight() / 2, getLevel());
     }
 }
 void ofApp::drawMode1(int x, int y, int n)
@@ -82,6 +86,23 @@ void ofApp::drawMode3(float x, float y, float size, int n)
     drawMode3((a.x + b.x) / 2, (a.y + b.y) / 2, size / 2, n - 1);
 }
 
+void ofApp::drawTriforce(float x, float y, float size, int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+
+    ofPoint a(x, y);
+    ofPoint b(x + size, y);
+    ofPoint c(x + size / 2, y + ((sqrt(3) * size) / 2));
+
+    ofDrawTriangle(a, b, c);
+
+    drawTriforce(x, y, size / 2, n - 1);
+    drawTriforce((a.x + b.x) / 2, (a.y + b.y) / 2, size / 2, n - 1);
+    drawTriforce((a.x + c.x) / 2, (a.y + c.y) / 2, size / 2, n - 1);
+}
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key)
 {
@@ -90,16 +111,64 @@ void ofApp::keyPressed(int key)
     {
     case '1':
         mode = '1';
+        setLevel(4);
         break;
     case '2':
         mode = '2';
+        setLevel(10);
         break;
     case '3':
         mode = '3';
+        setLevel(10);
         break;
     case '4':
         mode = '4';
+        setLevel(10);
         break;
+    }
+    if(key == '-'){
+        if(mode=='1'){
+            if(getLevel()>0 && getLevel()<=4){
+                setLevel(getLevel()-1);
+            }
+        }
+        else if(mode=='2'){
+            if(getLevel()>0 && getLevel()<=10){
+                setLevel(getLevel()-1);
+            }
+        }
+        else if(mode=='3'){
+            if(getLevel()>0 && getLevel()<=10){
+                setLevel(getLevel()-1);
+            }
+        }
+        else if(mode=='4'){
+            if(getLevel()>0 && getLevel()<=10){
+                setLevel(getLevel()-1);
+            }
+        }
+    }
+    if(key == '='){
+        if(mode=='1'){
+            if(getLevel()>=0 && getLevel()<4){
+                setLevel(getLevel()+1);
+            }
+        }
+        else if(mode=='2'){
+            if(getLevel()>=0 && getLevel()<10){
+                setLevel(getLevel()+1);
+            }
+        }
+        else if(mode=='3'){
+            if(getLevel()>=0 && getLevel()<10){
+                setLevel(getLevel()+1);
+            }
+        }
+        else if(mode=='4'){
+            if(getLevel()>=0 && getLevel()<10){
+                setLevel(getLevel()+1);
+            }
+        }
     }
 }
 

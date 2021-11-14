@@ -8,10 +8,10 @@ class ofApp : public ofBaseApp{
 		void setup();
 		void update();
 		void draw();
-
 		void drawMode1(int x, int y, int n);
 		void drawMode2(int length, int n, int x, int y, int d);
 		void drawMode3(float x, float y, float size, int n);
+		void drawTriforce(float x, float y, float size, int n);
 		void keyPressed(int key);
 		void keyReleased(int key);
 		void mouseMoved(int x, int y);
@@ -23,6 +23,10 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
+		int setLevel(int level) {this->level=level;};
+		int getLevel() {return level;};
+		//vector<ofColors>colors;
 	private:
 		char mode = '1';
+		int level=4;
 };
