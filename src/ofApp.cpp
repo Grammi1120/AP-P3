@@ -3,6 +3,15 @@
 //--------------------------------------------------------------
 void ofApp::setup()
 {
+    circleFractal = new CircleFractal();
+    treeFractal = new TreeFractal();
+    triangleFractal = new TriangleFractal();
+    triforceFractal = new TriforceFractal();
+
+    fractalVector.push_back(circleFractal);
+    fractalVector.push_back(treeFractal);
+    fractalVector.push_back(triangleFractal);
+    fractalVector.push_back(triforceFractal);
 }
 
 //--------------------------------------------------------------
@@ -19,22 +28,6 @@ void ofApp::draw()
     /* The update method is called muliple times per second
     It's in charge of drawing all figures and text on screen */
     ofNoFill();
-    if (mode == '1')
-    {
-        drawMode1(ofGetWidth() / 2, ofGetHeight() / 2, getLevel());
-    }
-    else if (mode == '2')
-    {
-        drawMode2(200, getLevel(), ofGetWidth() / 2, ofGetHeight() - 50, 30);
-    }
-    else if (mode == '3')
-    {
-        drawMode3(ofGetWidth() / 3, 10, ofGetHeight() / 2, getLevel());
-    }
-    else if(mode == '4')
-    {
-        drawTriforce(ofGetWidth() / 3, 10, ofGetHeight() / 2, getLevel());
-    }
 }
 void ofApp::drawMode1(int x, int y, int n)
 {

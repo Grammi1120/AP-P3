@@ -1,7 +1,10 @@
 #pragma once
 #include<cmath>
-
 #include "ofMain.h"
+#include "CircleFractal.h"
+#include "TreeFractal.h"
+#include "TriangleFractal.h"
+#include "TriforceFractal.h"
 
 class ofApp : public ofBaseApp{
 	public:
@@ -23,10 +26,16 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-		int setLevel(int level) {this->level=level;};
+		void setLevel(int level) {this->level=level;};
 		int getLevel() {return level;};
-		//vector<ofColors>colors;
+		
+	
 	private:
 		char mode = '1';
 		int level=4;
+		vector<FractalMode*> fractalVector;
+		CircleFractal* circleFractal;
+		TreeFractal* treeFractal;
+		TriangleFractal* triangleFractal;
+		TriforceFractal* triforceFractal;
 };
