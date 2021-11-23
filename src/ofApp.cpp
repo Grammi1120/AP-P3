@@ -5,13 +5,14 @@ void ofApp::setup()
 {
     circleFractal = new CircleFractal();
     treeFractal = new TreeFractal();
-    triangleFractal = new TriangleFractal();
+    newFractal = new NewFractal();
     triforceFractal = new TriforceFractal();
+
 
     vector<int> speeds={20,20,20,20};
     fractalVector.push_back(circleFractal);
     fractalVector.push_back(treeFractal);
-    fractalVector.push_back(triangleFractal);
+    fractalVector.push_back(newFractal);
     fractalVector.push_back(triforceFractal);
     animation=new Animation(fractalVector,speeds);
 }

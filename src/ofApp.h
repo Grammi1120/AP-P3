@@ -6,6 +6,7 @@
 #include "TriangleFractal.h"
 #include "TriforceFractal.h"
 #include "Animation.h"
+#include "NewFractal.h"
 
 class ofApp : public ofBaseApp{
     public:
@@ -37,7 +38,7 @@ class ofApp : public ofBaseApp{
         vector<FractalMode*> fractalVector;
         CircleFractal* circleFractal;
         TreeFractal* treeFractal;
-        TriangleFractal* triangleFractal;
+        NewFractal* newFractal;
         TriforceFractal* triforceFractal;
 
         Animation* animation;

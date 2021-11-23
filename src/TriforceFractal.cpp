@@ -12,7 +12,6 @@ void TriforceFractal::draw(){
 }
 
 void TriforceFractal::pinta(float x, float y, float size, int n){
-    ofSetColor(color[n]);
     if (n == 0)
     {
         return;
@@ -26,6 +25,7 @@ void TriforceFractal::pinta(float x, float y, float size, int n){
 
     pinta(x, y, size / 2, n - 1);
     pinta((a.x + b.x) / 2, (a.y + b.y) / 2, size / 2, n - 1);
+    ofSetColor(color[n]);
     pinta((a.x + c.x) / 2, (a.y + c.y) / 2, size / 2, n - 1);
     
 }
